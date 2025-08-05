@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pre-Trip Inspection</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+
+<body>
+  <header>
+    <h1>Pre-Trip Inspection</h1>
+    <p id="last-saved">Last saved: never</p>
+  </header>
+
+  <main>
+    <section id="truck-layout">
+      <h2>Pre-Trip Inspection</h2>
+
+      <div class="zone" data-zone="front_truck">
+        <h3>Front of Truck</h3>
+        <ul></ul>
+      </div>
+      <div class="zone" data-zone="back_truck">
+        <h3>Back of Truck</h3>
+        <ul></ul>
+      </div>
+      <div class="zone" data-zone="front_seat">
+        <h3>Front Seat</h3>
+        <ul></ul>
+      </div>
+      <div class="zone" data-zone="back_seat">
+        <h3>Back Seat</h3>
+        <ul></ul>
+      </div>
+      <div class="zone" data-zone="engine">
+        <h3>Engine</h3>
+        <ul></ul>
+      </div>
+      <div class="zone" data-zone="fuel">
+        <h3>Fuel</h3>
+        <ul></ul>
+      </div>
+      <div class="zone" data-zone="job_box_1">
+        <h3>Job Box 1 (Left Bed)</h3>
+        <ul></ul>
+      </div>
+      <div class="zone" data-zone="job_box_2">
+        <h3>Job Box 2 (Right Bed)</h3>
+        <ul></ul>
+      </div>
+
+      <!-- Auxiliary Kit Zones -->
+      <div class="zone" data-zone="ppe_kit">
+        <h3>PPE Kit</h3>
+        <ul></ul>
+      </div>
+      <div class="zone" data-zone="spc_kit">
+        <h3>SPC Kit</h3>
+        <ul></ul>
+      </div>
+      <div class="zone" data-zone="maintenance_kit">
+        <h3>Maintenance Kit</h3>
+        <ul></ul>
+      </div>
+      <div class="zone" data-zone="mc4_kit">
+        <h3>MC4 Kit</h3>
+        <ul></ul>
+      </div>
+    </section>
+
+    <section id="truck-visual">
+      <img src="assets/Truck_Layout.png" alt="Truck Layout" />
+    </section>
+
+    <aside>
+      <h2>Auxiliary Kits</h2>
+      <button onclick="toggleKit('spc_kit')">Toggle SPC Kit</button>
+      <button onclick="toggleKit('maintenance_kit')">Toggle Maintenance Kit</button>
+      <button onclick="toggleKit('mc4_kit')">Toggle MC4 Kit</button>
+      <button onclick="toggleKit('ppe_kit')">Toggle PPE Kit</button>
+    </aside>
+  </main>
+
+  <footer>
+    <button onclick="resetChecklist()">Reset Checklist</button>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+</body>
+
+</html>
