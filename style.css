@@ -7,80 +7,6 @@ body {
   min-height: 100vh;
 }
 
-header, footer {
-  background: #444;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
-main {
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
-  padding: 1rem;
-}
-
-#truck-layout {
-  flex: 2;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.zone {
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 1rem;
-  flex: 1 1 250px;
-  background-color: #f9f9f9;
-}
-
-.zone h3 {
-  margin-top: 0;
-}
-
-aside {
-  flex: 1;
-  min-width: 200px;
-  padding: 1rem;
-}
-
-button {
-  display: block;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  width: 100%;
-  font-size: 1rem;
-}
-
-#truck-visual {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-#truck-visual img {
-  max-width: 100%;
-  height: auto;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-}
-
-.zone.completed {
-  background-color: #d4edda;
-  /* light green */
-  border-color: #28a745;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 header,
 footer {
   background: #444;
@@ -145,9 +71,55 @@ button.active {
   margin-bottom: 1rem;
 }
 
-#truck-visual img {
-  max-width: 100%;
-  height: auto;
+/* --- Truck Visual Container --- */
+.truck-stack {
+  position: relative;
+  margin: 0 auto;
+  width: min(500px, 95vw);
+}
+
+/* PNG background */
+.truck-bg {
+  background-image: url('assets/Truck_Layout.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: top left;
+  width: 100%;
+  aspect-ratio: 1000 / 1600;
+  /* matches your PNG dimensions */
   border: 2px solid #ccc;
   border-radius: 10px;
+}
+
+/* SVG overlay for zone highlighting */
+.truck-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Default zone appearance */
+.viz-zone {
+  fill: rgba(40, 167, 69, 0);
+  /* transparent until completed */
+  stroke: rgba(0, 0, 0, 0.08);
+  /* subtle outline */
+  stroke-width: 2;
+  transition: fill 0.3s ease, stroke 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* When zone checklist is completed */
+.viz-zone.done {
+  fill: rgba(40, 167, 69, 0.4);
+  /* green fill */
+  stroke: rgba(40, 167, 69, 0.8);
+  /* green border */
+  stroke-width: 3;
+}
+
+/* When auxiliary kit is inactive */
+.viz-zone.inactive {
+  opacity: 0.3;
 }
