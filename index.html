@@ -19,6 +19,7 @@
     <section id="truck-layout">
       <h2>Pre-Trip Inspection</h2>
 
+      <!-- Main Truck Zones -->
       <div class="zone" data-zone="front_truck">
         <h3>Front of Truck</h3>
         <ul></ul>
@@ -71,16 +72,55 @@
       </div>
     </section>
 
-    <section id="truck-visual">
-      <img src="assets/Truck_Layout.png" alt="Truck Layout" />
+    <section id="truck-visual" aria-label="Truck visualization">
+      <div class="truck-stack">
+        <!-- PNG background -->
+        <div class="truck-bg" aria-hidden="true"></div>
+
+        <!-- SVG overlay for zones - NON-OVERLAPPING DESIGN -->
+        <svg class="truck-overlay" viewBox="0 0 1000 1600" xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid meet">
+          <g id="viz-zones">
+            <!-- Front of truck (cab + hood area) -->
+            <rect id="zone-front" class="viz-zone" x="120" y="40" width="760" height="300" rx="40" ry="40" />
+
+            <!-- Engine (small callout in hood) -->
+            <rect id="zone-engine" class="viz-zone" x="400" y="100" width="200" height="100" rx="30" ry="30" />
+
+            <!-- Front seat area -->
+            <rect id="zone-seat-front" class="viz-zone" x="280" y="380" width="440" height="130" rx="18" ry="18" />
+
+            <!-- Back seat area -->
+            <rect id="zone-seat-back" class="viz-zone" x="280" y="540" width="440" height="90" rx="18" ry="18" />
+
+            <!-- Back of truck (center bed area, excluding job boxes) -->
+            <rect id="zone-back" class="viz-zone" x="370" y="680" width="260" height="480" rx="20" ry="20" />
+
+            <!-- Left job box -->
+            <rect id="zone-job-left" class="viz-zone" x="190" y="700" width="160" height="460" rx="18" ry="18" />
+
+            <!-- Right job box -->
+            <rect id="zone-job-right" class="viz-zone" x="650" y="700" width="160" height="460" rx="18" ry="18" />
+
+            <!-- Fuel area -->
+            <rect id="zone-fuel" class="viz-zone" x="210" y="1320" width="160" height="120" rx="16" ry="16" />
+
+            <!-- Auxiliary kit zones (dedicated spaces around the truck) -->
+            <rect id="zone-aux-1" class="viz-zone" x="50" y="400" width="120" height="120" rx="15" ry="15" />
+            <rect id="zone-aux-2" class="viz-zone" x="830" y="400" width="120" height="120" rx="15" ry="15" />
+            <rect id="zone-aux-3" class="viz-zone" x="50" y="800" width="120" height="120" rx="15" ry="15" />
+            <rect id="zone-aux-4" class="viz-zone" x="830" y="800" width="120" height="120" rx="15" ry="15" />
+          </g>
+        </svg>
+      </div>
     </section>
 
     <aside>
       <h2>Auxiliary Kits</h2>
+      <button onclick="toggleKit('ppe_kit')">Toggle PPE Kit</button>
       <button onclick="toggleKit('spc_kit')">Toggle SPC Kit</button>
       <button onclick="toggleKit('maintenance_kit')">Toggle Maintenance Kit</button>
       <button onclick="toggleKit('mc4_kit')">Toggle MC4 Kit</button>
-      <button onclick="toggleKit('ppe_kit')">Toggle PPE Kit</button>
     </aside>
   </main>
 
